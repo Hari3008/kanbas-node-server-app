@@ -54,6 +54,11 @@ const module = {
         res.json(assignment);
       });
 
+      app.get("/lab5/assignment/completed/:status", (req, res) => {
+        const { status } = req.params;
+        assignment.completed = status;
+        res.json(assignment);
+      });
 
   };
   
