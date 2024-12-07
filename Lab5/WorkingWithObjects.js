@@ -58,7 +58,7 @@ const module = {
         const { status } = req.params;
         assignment.completed = status;
         res.json(assignment);
-      });
+      }); 
 
   };
   
