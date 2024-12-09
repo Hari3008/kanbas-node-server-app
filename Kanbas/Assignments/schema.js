@@ -1,13 +1,20 @@
 import mongoose from "mongoose";
-const assignmentSchema = new mongoose.Schema(
-    {
-        title: String,
-        course: { type: mongoose.Schema.Types.ObjectId, ref: "CourseModel" },
-        unlock: Date,
-        due: Date,
-        description: String,
-        points: Number,
-    },
-    {collection: "assignments"}
+const schema = new mongoose.Schema(
+ {
+   title: String,
+   course: { type: mongoose.Schema.Types.ObjectId, ref: "CourseModel" },
+   notAvailableUntil: Date,
+   due:Date,
+   description:String,
+   points:Number,
+   submissionType: {
+    type: String,
+    enum: ["Online", "In-person"],
+    default: "Online",
+  },   
+  assignmentGroup: String
+
+ },
+ { collection: "assignments" }
 );
-export default assignmentSchema;
+export default schema;
